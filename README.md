@@ -3,7 +3,7 @@ Hardware info and programming
 
 Hardware:
 
--Peresistatic pump
+-Peristaltic pump
 
 -Raspberry Pi 4
 
