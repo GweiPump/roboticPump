@@ -13,7 +13,7 @@ Hardware:
 
 -Power supply 
 
--RFP30N06LE (MOSFET) or T120 (BJT) (to use Raspberry Pi 4 GPIO output pins to control peresistatic pump)
+-T120 (BJT) (to use Raspberry Pi 4 GPIO output pins to control peresistatic pump)
 
 Note 1: you can use a mechanical relay board instead of a transistor (MOSFET [voltage controlled] or BJT [current controlled]).
 
@@ -27,14 +27,20 @@ Mechanical relay boards:
 
 -Accurate for keeping voltages the same between connections (useful for reading electric sensor data, not needed for this application)
 
-Note 2: You can use a BJT instead of a MOSFET, but
+Note 2: Raspberry Pi and transistor comparison:
+
+BJTs: 
+
+-Easy to control with Raspberry Pi 
+
+-Good for low current applications
 
 MOSFETS:
+
+-Hard to control with Raspberry Pi 4 (3.3V GPIO) instead of Ardunio (5.0V GPIO)
 
 -Have a higher switch frequency than BJTs
 
 -Very energy effecient and easy to control with gate voltages
 
-BJTs: 
 
--Good for low current applications
