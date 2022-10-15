@@ -13,7 +13,7 @@ Hardware:
 
 -Power supply 
 
--T120 (BJT) (to use Raspberry Pi 4 GPIO output pins to control peresistatic pump)
+-TIP120 (BJT) (to use Raspberry Pi 4 GPIO output pins to control peresistatic pump)
 
 Note 1: you can use a mechanical relay board instead of a transistor (MOSFET [voltage controlled] or BJT [current controlled]).
 
