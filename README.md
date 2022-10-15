@@ -1,6 +1,18 @@
 # roboticPump
 Hardware info and programming 
 
+Demo testing hardware:
+
+https://www.youtube.com/watch?v=CX-vrFobFG4&ab_channel=Singularity2045
+
+Wiring info (more to update):
+
+300 ohm resistor 
+https://electronics.stackexchange.com/questions/108113/control-12-solenoids-with-a-raspberry-pi
+
+Wiring (with 300 ohm resistor, Raspberry Pi 4 has 3.3V GPIO while Arduino has 5.0V GPIO): 
+https://www.officialhrm.com/arduino/arduino-tip120-motor
+
 Hardware:
 
 -Peristaltic pump
