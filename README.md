@@ -21,7 +21,7 @@ Hardware:
 
 -Breadboard
 
--Flyback diodes (to protect against arc currents from voltage spikes from Peresistatic pump because it is an inductive load)
+-Flyback diodes (to protect against arc currents from voltage spikes from peresistatic pump because it is an inductive load)
 
 -Power supply 
 
