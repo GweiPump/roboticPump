@@ -1,16 +1,18 @@
 # roboticPump
-Hardware info and programming 
+Hardware info and programming
 
 Demo testing hardware:
 
 https://www.youtube.com/watch?v=CX-vrFobFG4&ab_channel=Singularity2045
 
+Pump rate is about 40 mL every 76 seconds not primed per pump.
+
 Wiring info (more to update):
 
-300 ohm resistor 
+300 ohm resistor
 https://electronics.stackexchange.com/questions/108113/control-12-solenoids-with-a-raspberry-pi
 
-Wiring (with 300 ohm resistor, Raspberry Pi 4 has 3.3V GPIO while Arduino has 5.0V GPIO): 
+Wiring (with 300 ohm resistor, Raspberry Pi 4 has 3.3V GPIO while Arduino has 5.0V GPIO):
 https://www.officialhrm.com/arduino/arduino-tip120-motor
 
 Hardware:
@@ -23,7 +25,7 @@ Hardware:
 
 -Flyback diodes (to protect against arc currents from voltage spikes from peresistatic pump because it is an inductive load)
 
--Power supply 
+-Power supply
 
 -TIP120 (BJT) (to use Raspberry Pi 4 GPIO output pins to control peresistatic pump)
 
@@ -41,9 +43,9 @@ Mechanical relay boards:
 
 Note 2: Raspberry Pi and transistor comparison:
 
-BJTs: 
+BJTs:
 
--Easy to control with Raspberry Pi 
+-Easy to control with Raspberry Pi
 
 -Good for low current applications
 
@@ -54,5 +56,3 @@ MOSFETS:
 -Have a higher switch frequency than BJTs
 
 -Very energy effecient and easy to control with gate voltages
-
-

@@ -16,6 +16,6 @@ setInterval(() => {
 
     // piblaster.setPwm(21, pulseWidth);
 
-    console.log("Seconds passed: " + (Date.now() - startTime)/1000)
+    console.log("Seconds passed: " + (Date.now() - startTime)/1000) //Pumped to 40mL in about 76 seconds (not primed).
 
 }, timeMilliSec);
