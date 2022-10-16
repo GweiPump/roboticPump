@@ -8,7 +8,7 @@ const pulseWidthMax = 0.35;
 let pulseWidth = pulseWidthMax
 
 setInterval(() => { 
-  piblaster.setPwm(22, pulseWidth); 
+  piblaster.setPwm(21, pulseWidth); 
   console.log(pulseWidth)
   if (pulseWidth == pulseWidthMin) {
       pulseWidth = pulseWidthMax
