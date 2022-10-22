@@ -25,7 +25,7 @@ Install Golang and Golang Version Manager:
 
 https://github.com/moovweb/gvm
 
-Using gorobot:
+Using gobot:
 
 https://gobot.io/documentation/platforms/raspi/
 
