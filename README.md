@@ -14,7 +14,11 @@ Pump rate is about 40 mL every 50 seconds not primed with two pumps at the same 
 
 Using GPIO pins 21 and 23.
 
-Wiring info (more to update):
+Wiring info:
+
+Wiring diagram online drawing tool:
+
+https://www.circuit-diagram.org/editor/
 
 300 ohm resistor
 https://electronics.stackexchange.com/questions/108113/control-12-solenoids-with-a-raspberry-pi

@@ -1,0 +1,11 @@
+* Netlist created with www.circuit-diagram.org
+* 
+'transnpn base:0 col:1 t=NPN
+'transnpn col:1 base:2 t=NPN
+V1 3 0 5
+D2 1 3
+'inductor b:1 a:3 text= inductance=0.1 showInductance=False
+V3 0 0
+V4 4 0 5
+'toggleswitch a:4 b:5 t=Toggle closed=False
+R5 5 ? 300
