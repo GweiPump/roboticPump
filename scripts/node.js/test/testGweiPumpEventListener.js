@@ -32,6 +32,8 @@ deployedGweiPump.events.oilBought({ //Subscribe to event.
  .on('data', function(eventResult){
    console.log("EVENT DETECTED! PUMP OIL [40mL]!")
    pumpValueStatus();  //Call the get function to get the most accurate present state for the value.
+   //Pump logic goes here.
+   console.log("Waiting for a GweiPump oilBought event...")
    })
  .on('changed', function(eventResult){
      // remove event from local database
