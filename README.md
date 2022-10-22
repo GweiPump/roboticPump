@@ -19,6 +19,16 @@ https://electronics.stackexchange.com/questions/108113/control-12-solenoids-with
 Wiring (with 300 ohm resistor, Raspberry Pi 4 has 3.3V GPIO while Arduino has 5.0V GPIO):
 https://www.officialhrm.com/arduino/arduino-tip120-motor
 
+Golang:
+
+Install Golang and Golang Version Manager:
+
+https://github.com/moovweb/gvm
+
+Using gorobot:
+
+https://gobot.io/documentation/platforms/raspi/
+
 Hardware:
 
 -Peristaltic pump
