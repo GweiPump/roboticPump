@@ -1,8 +1,8 @@
-//Step 1: Create abi file by running: solc --abi GweiPump.sol > GweiPump.abi
-//Step 2: Create bin file by running: solc --bin GweiPump.sol > GweiPump.bin
+//Step 1: Create abi file by running: solc --abi VockTails.sol > VockTails.abi
+//Step 2: Create bin file by running: solc --bin VockTails.sol > VockTails.bin
 //Step 3: Remove comments above the abi and bin files.
-//Step 4: Generate Go contract interaction file by running:  abigen --bin=GweiPump.bin --abi=GweiPump.abi --pkg=gweiPump --out=GweiPump.go
-//Step 5: Run: testGweiPumpEvents.go
+//Step 4: Generate Go contract interaction file by running:  abigen --bin=VockTails.bin --abi=VockTails.abi --pkg=vockTails --out=VockTails.go
+//Step 5: Run: testVockTailEvents.go
 package main
 
 import (
@@ -12,7 +12,7 @@ import (
     "context"
     "math/big"
 
-    gweiPump "gweiPumpProject/contracts/GweiPump" //LOOK AT "go.mod" FOR YOUR RELATIVE PROJECT PATH TO FIND CONTRACT INTERFACE!
+    vockTails "gweiPumpProject/contracts/VockTails" //LOOK AT "go.mod" FOR YOUR RELATIVE PROJECT PATH TO FIND CONTRACT INTERFACE!
 
     "github.com/ethereum/go-ethereum"
     "github.com/ethereum/go-ethereum/accounts/abi/bind"
@@ -33,16 +33,16 @@ func main() {
 
      fmt.Println("chainID: ", chainID)
 
-     contractAddress := common.HexToAddress("0xdf6110fE578B98DEF32d5066fE3538a646C9A48B")
+     contractAddress := common.HexToAddress("0xC14708B1faf3737602EA69b68C893beb58baB5a7")
      contract := connectContractAddress(client,contractAddress)
      fmt.Println("contract type object: ")
      fmt.Printf("%T",contract)
      fmt.Println("")
 
-     isPumpFilled := getIsPumpFilled(contract)
-     fmt.Println("isPumpFilled:", isPumpFilled)
+     randomDrinkValue := getRandomDrinkValue(contract)
+     fmt.Println("randomDrinkValue:", randomDrinkValue)
 
-     fmt.Println("Listening for GweiPump oilBought events...")
+     fmt.Println("Listening for VockTail randomDrinkValue events...")
      SubscribeToEvents(client, contractAddress, contract)
 
 }
@@ -61,18 +61,18 @@ func clientSetup(wssConnectionURL string) (client *ethclient.Client, chainID *bi
   return
 }
 
-func connectContractAddress(client *ethclient.Client, contractAddress common.Address) (contract *gweiPump.GweiPump) {
+func connectContractAddress(client *ethclient.Client, contractAddress common.Address) (contract *vockTails.VockTails) {
 
-  contract, err := gweiPump.NewGweiPump(contractAddress, client)
+  contract, err := vockTails.NewVockTails(contractAddress, client)
   if err != nil {
       log.Fatal(err)
   }
   return
 }
 
-func getIsPumpFilled(contract *gweiPump.GweiPump) (isPumpFilled *big.Int) {
+func getRandomDrinkValue(contract *vockTails.VockTails) (isPumpFilled *big.Int) {
 
-  isPumpFilled, err := contract.IsPumpFilled(&bind.CallOpts{})
+  isPumpFilled, err := contract.RandomDrinkValue(&bind.CallOpts{})
   if err != nil {
         log.Fatal(err)
   }
@@ -80,7 +80,7 @@ func getIsPumpFilled(contract *gweiPump.GweiPump) (isPumpFilled *big.Int) {
 
 }
 
-func SubscribeToEvents(client *ethclient.Client, contractAddress common.Address, contract *gweiPump.GweiPump) {
+func SubscribeToEvents(client *ethclient.Client, contractAddress common.Address, contract *vockTails.VockTails) {
   //Subscribe to events from smart contract address.
   query := ethereum.FilterQuery{
       Addresses: []common.Address{contractAddress},
@@ -99,13 +99,13 @@ func SubscribeToEvents(client *ethclient.Client, contractAddress common.Address,
       case vLog := <-logs:
           fmt.Println("New Event Log:", vLog) // pointer to event log
 
-          isPumpFilled, err := contract.IsPumpFilled(&bind.CallOpts{})
+          randomDrinkValue, err := contract.RandomDrinkValue(&bind.CallOpts{})
             if err != nil {
                 log.Fatal(err)
           }
-          fmt.Println("isPumpFilled:", isPumpFilled)
+          fmt.Println("randomDrinkValue:", randomDrinkValue)
 
-          fmt.Println("Listening for GweiPump oilBought events...")
+          fmt.Println("Listening for VockTails randomDrinkValue events...")
 
       }
   }
