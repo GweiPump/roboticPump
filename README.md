@@ -8,6 +8,14 @@ Demo testing hardware:
 
 https://www.youtube.com/watch?v=CX-vrFobFG4&ab_channel=Singularity2045
 
+## Gobot flow pump rate (faster)
+
+Pump rate is about 40 mL every 33???? seconds not primed with a single pump.
+
+Pump rate is about 40 mL every 22 seconds not primed with two pumps at the same time.
+
+## pi-blaster.js pump flow rate (slower)
+
 Pump rate is about 40 mL every 76 seconds not primed with a single pump.
 
 Pump rate is about 40 mL every 50 seconds not primed with two pumps at the same time.

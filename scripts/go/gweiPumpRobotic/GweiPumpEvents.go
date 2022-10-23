@@ -138,7 +138,7 @@ func setupRobotJobDoublePump40mL() (robot *gobot.Robot){
     pump1.On();
     pump2.On();
 
-    time.Sleep(50 * time.Second)
+    time.Sleep(22 * time.Second)
 
     fmt.Println("OFF!");
     pump1.Off();
