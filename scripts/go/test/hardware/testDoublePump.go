@@ -14,6 +14,10 @@ func main() {
         robotJobDoublePumpCycle := setupRobotJobDoublePumpCycle()
 
         robotJobDoublePumpCycle.Start()
+
+        //go robotJobDoublePumpCycle.Start() // You might need a go routine if the process gets stuck in more complicated scripts.
+                                             // However in this script main will just exit with the go rountine added with just this routine.
+
 }
 
 func setupRobotJobDoublePumpCycle() (robot *gobot.Robot){
@@ -24,7 +28,7 @@ func setupRobotJobDoublePumpCycle() (robot *gobot.Robot){
   pump2 := gpio.NewLedDriver(r, "16") //Physical pin 16, GPIO 23.
 
   work := func() {
-    
+
     gobot.Every(4*time.Second, func() {
 
         fmt.Println("ON!");
@@ -41,6 +45,7 @@ func setupRobotJobDoublePumpCycle() (robot *gobot.Robot){
         time.Sleep(2 * time.Second)
 
     })
+
   }
 
   robot = gobot.NewRobot("blinkBot",
