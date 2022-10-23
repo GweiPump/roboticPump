@@ -2,7 +2,7 @@ package main
 
 import (
         "time"
-	"fmt"
+	      "fmt"
 
         "gobot.io/x/gobot"
         "gobot.io/x/gobot/drivers/gpio"
@@ -10,36 +10,45 @@ import (
 )
 
 func main() {
-        r := raspi.NewAdaptor()
-        //led := gpio.NewLedDriver(r, "38") //Physical pin 38, GPIO 20.
-        pump1 := gpio.NewLedDriver(r, "40") //Physical pin 40, GPIO 21.
-        pump2 := gpio.NewLedDriver(r, "16") //Physical pin 16, GPIO 23.
 
-        work := func() {
-                gobot.Every(4*time.Second, func() {
+        robotJobDoublePumpCycle := setupRobotJobDoublePumpCycle()
 
-                    fmt.Println("ON!");
+        robotJobDoublePumpCycle.Start()
+}
 
-                    pump1.On();
-                    pump2.On();
+func setupRobotJobDoublePumpCycle() (robot *gobot.Robot){
 
-                    time.Sleep(2 * time.Second)
+  r := raspi.NewAdaptor()
+  //led := gpio.NewLedDriver(r, "38") //Physical pin 38, GPIO 20.
+  pump1 := gpio.NewLedDriver(r, "40") //Physical pin 40, GPIO 21.
+  pump2 := gpio.NewLedDriver(r, "16") //Physical pin 16, GPIO 23.
 
-                    fmt.Println("OFF!");
-                    pump1.Off();
-                    pump2.Off();
+  work := func() {
+    
+    gobot.Every(4*time.Second, func() {
 
-                    time.Sleep(2 * time.Second)
+        fmt.Println("ON!");
 
-                })
-        }
+        pump1.On();
+        pump2.On();
 
-        robot := gobot.NewRobot("blinkBot",
-                []gobot.Connection{r},
-                //[]gobot.Device{led},
-                []gobot.Device{pump1,pump2},
-                work,
-        )
+        time.Sleep(2 * time.Second)
 
-        robot.Start()
+        fmt.Println("OFF!");
+        pump1.Off();
+        pump2.Off();
+
+        time.Sleep(2 * time.Second)
+
+    })
+  }
+
+  robot = gobot.NewRobot("blinkBot",
+          []gobot.Connection{r},
+          //[]gobot.Device{led},
+          []gobot.Device{pump1,pump2},
+          work,
+  )
+
+  return
 }

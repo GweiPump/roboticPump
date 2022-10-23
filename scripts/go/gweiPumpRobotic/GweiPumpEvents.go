@@ -50,7 +50,7 @@ func main() {
      isPumpFilled := getIsPumpFilled(contract)
      fmt.Println("isPumpFilled:", isPumpFilled)
 
-     robotJobDoublePump40mL := setupRobotDoublePump40mL()
+     robotJobDoublePump40mL := setupRobotJobDoublePump40mL()
 
      fmt.Println("Listening for GweiPump oilBought events...")
      SubscribeToEventsWithRobot(client, contractAddress, contract, robotJobDoublePump40mL)
@@ -128,7 +128,7 @@ func SubscribeToEventsWithRobot(client *ethclient.Client, contractAddress common
 }
 
 
-func setupRobotDoublePump40mL() (robot *gobot.Robot){
+func setupRobotJobDoublePump40mL() (robot *gobot.Robot){
 
   r := raspi.NewAdaptor()
   //led := gpio.NewLedDriver(r, "38") //Physical pin 38, GPIO 20.
