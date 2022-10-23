@@ -26,7 +26,7 @@ https://electronics.stackexchange.com/questions/108113/control-12-solenoids-with
 Wiring (with 300 ohm resistor, Raspberry Pi 4 has 3.3V GPIO while Arduino has 5.0V GPIO):
 https://www.officialhrm.com/arduino/arduino-tip120-motor
 
-Golang:
+Golang (go1.17 is working with Geth and Gobot):
 
 Install Golang and Golang Version Manager:
 
