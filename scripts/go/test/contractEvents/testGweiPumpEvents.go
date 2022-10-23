@@ -33,7 +33,7 @@ func main() {
 
      fmt.Println("chainID: ", chainID)
 
-     contractAddress := common.HexToAddress("0xdf6110fE578B98DEF32d5066fE3538a646C9A48B")
+     contractAddress := common.HexToAddress("0xd27759C36967E299ef16df8FAac24D4adb21665c")
      contract := connectContractAddress(client,contractAddress)
      fmt.Println("contract type object: ")
      fmt.Printf("%T",contract)
