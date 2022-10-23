@@ -21,7 +21,6 @@ import (
     "github.com/ethereum/go-ethereum/ethclient"
     "github.com/ethereum/go-ethereum/core/types"
 
-
     "time"
     "gobot.io/x/gobot"
     "gobot.io/x/gobot/drivers/gpio"
@@ -115,9 +114,7 @@ func SubscribeToEventsWithRobot(client *ethclient.Client, contractAddress common
           }
           fmt.Println("isPumpFilled:", isPumpFilled)
 
-        //  go robotDoublePump40mL() //Use a go routine to keep event listener on when starting gobot.
-
-          go robotJobDoublePump40mL.Start()
+          go robotJobDoublePump40mL.Start() //Use a go routine to keep event listener on when starting gobot.
 
           fmt.Println("Listening for GweiPump oilBought events...")
 
@@ -131,7 +128,6 @@ func SubscribeToEventsWithRobot(client *ethclient.Client, contractAddress common
 func setupRobotJobDoublePump40mL() (robot *gobot.Robot){
 
   r := raspi.NewAdaptor()
-  //led := gpio.NewLedDriver(r, "38") //Physical pin 38, GPIO 20.
   pump1 := gpio.NewLedDriver(r, "40") //Physical pin 40, GPIO 21.
   pump2 := gpio.NewLedDriver(r, "16") //Physical pin 16, GPIO 23.
 
@@ -142,7 +138,7 @@ func setupRobotJobDoublePump40mL() (robot *gobot.Robot){
     pump1.On();
     pump2.On();
 
-    time.Sleep(2 * time.Second)
+    time.Sleep(50 * time.Second)
 
     fmt.Println("OFF!");
     pump1.Off();
