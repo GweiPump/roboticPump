@@ -6,6 +6,7 @@
 package main
 
 import (
+
     "fmt"
     "log"
     "os"
@@ -21,12 +22,11 @@ import (
     "github.com/ethereum/go-ethereum/core/types"
 
 
-        "time"
-	//"fmt"
+    "time"
+    "gobot.io/x/gobot"
+    "gobot.io/x/gobot/drivers/gpio"
+    "gobot.io/x/gobot/platforms/raspi"
 
-        "gobot.io/x/gobot"
-        "gobot.io/x/gobot/drivers/gpio"
-        "gobot.io/x/gobot/platforms/raspi"
 )
 
 func main() {
@@ -50,8 +50,10 @@ func main() {
      isPumpFilled := getIsPumpFilled(contract)
      fmt.Println("isPumpFilled:", isPumpFilled)
 
+     robotJobDoublePump40mL := setupRobotDoublePump40mL()
+
      fmt.Println("Listening for GweiPump oilBought events...")
-     SubscribeToEvents(client, contractAddress, contract)
+     SubscribeToEventsWithRobot(client, contractAddress, contract, robotJobDoublePump40mL)
 
 }
 
@@ -88,7 +90,7 @@ func getIsPumpFilled(contract *gweiPump.GweiPump) (isPumpFilled *big.Int) {
 
 }
 
-func SubscribeToEvents(client *ethclient.Client, contractAddress common.Address, contract *gweiPump.GweiPump) {
+func SubscribeToEventsWithRobot(client *ethclient.Client, contractAddress common.Address, contract *gweiPump.GweiPump, robotJobDoublePump40mL *gobot.Robot) {
   //Subscribe to events from smart contract address.
   query := ethereum.FilterQuery{
       Addresses: []common.Address{contractAddress},
@@ -113,7 +115,9 @@ func SubscribeToEvents(client *ethclient.Client, contractAddress common.Address,
           }
           fmt.Println("isPumpFilled:", isPumpFilled)
 
-          go robotDoublePump40mL() //Use a go routine to keep event listener on when starting gobot.
+        //  go robotDoublePump40mL() //Use a go routine to keep event listener on when starting gobot.
+
+          go robotJobDoublePump40mL.Start()
 
           fmt.Println("Listening for GweiPump oilBought events...")
 
@@ -124,7 +128,7 @@ func SubscribeToEvents(client *ethclient.Client, contractAddress common.Address,
 }
 
 
-func robotDoublePump40mL() {
+func setupRobotDoublePump40mL() (robot *gobot.Robot){
 
   r := raspi.NewAdaptor()
   //led := gpio.NewLedDriver(r, "38") //Physical pin 38, GPIO 20.
@@ -146,13 +150,12 @@ func robotDoublePump40mL() {
 
   }
 
-  robot := gobot.NewRobot("blinkBot",
+  robot = gobot.NewRobot("blinkBot",
           []gobot.Connection{r},
           //[]gobot.Device{led},
           []gobot.Device{pump1,pump2},
           work,
   )
 
-  robot.Start()
-
+  return
 }
