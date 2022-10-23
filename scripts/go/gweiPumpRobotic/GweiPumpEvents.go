@@ -113,45 +113,7 @@ func SubscribeToEvents(client *ethclient.Client, contractAddress common.Address,
           }
           fmt.Println("isPumpFilled:", isPumpFilled)
 
-
-
- 	r := raspi.NewAdaptor()
-        //led := gpio.NewLedDriver(r, "38") //Physical pin 38, GPIO 20.
-        pump1 := gpio.NewLedDriver(r, "40") //Physical pin 40, GPIO 21.
-        pump2 := gpio.NewLedDriver(r, "16") //Physical pin 16, GPIO 23.        
-
-        work := func() {
-           //     gobot.Every(2*time.Second, func() {
-	//		fmt.Println(time.Now().Unix());
-	//		fmt.Println(time.Now().Unix()%4);
-			
-	//		if (time.Now().Unix()%4) == 2 { 
-				fmt.Println("ON!");
-				//led.On();
-				pump1.On();
-				pump2.On();
-	
-					
-				time.Sleep(2 * time.Second)
-	//		} else {
-				fmt.Println("OFF!");
-				//led.Off();
-				pump1.Off();
-				pump2.Off();
-	//		}
-
-          //      })
-        }
-
-        robot := gobot.NewRobot("blinkBot",
-                []gobot.Connection{r},
-                //[]gobot.Device{led},
-                []gobot.Device{pump1,pump2},
-                work,
-        )
-
-        robot.Start()
-	  
+          go robotDoublePump40mL() //Use a go routine to keep event listener on when starting gobot.
 
           fmt.Println("Listening for GweiPump oilBought events...")
 
@@ -159,4 +121,38 @@ func SubscribeToEvents(client *ethclient.Client, contractAddress common.Address,
   }
 
   return
+}
+
+
+func robotDoublePump40mL() {
+
+  r := raspi.NewAdaptor()
+  //led := gpio.NewLedDriver(r, "38") //Physical pin 38, GPIO 20.
+  pump1 := gpio.NewLedDriver(r, "40") //Physical pin 40, GPIO 21.
+  pump2 := gpio.NewLedDriver(r, "16") //Physical pin 16, GPIO 23.
+
+  work := func() {
+
+    fmt.Println("ON!");
+
+    pump1.On();
+    pump2.On();
+
+    time.Sleep(2 * time.Second)
+
+    fmt.Println("OFF!");
+    pump1.Off();
+    pump2.Off();
+
+  }
+
+  robot := gobot.NewRobot("blinkBot",
+          []gobot.Connection{r},
+          //[]gobot.Device{led},
+          []gobot.Device{pump1,pump2},
+          work,
+  )
+
+  robot.Start()
+
 }
