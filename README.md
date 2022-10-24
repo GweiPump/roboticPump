@@ -10,7 +10,7 @@ https://www.youtube.com/watch?v=CX-vrFobFG4&ab_channel=Singularity2045
 
 ## Gobot flow pump rate (faster)
 
-Pump rate is about 40 mL every 33???? seconds not primed with a single pump.
+Pump rate is about 40 mL every 44 seconds not primed with a single pump.
 
 Pump rate is about 40 mL every 22 seconds not primed with two pumps at the same time.
 

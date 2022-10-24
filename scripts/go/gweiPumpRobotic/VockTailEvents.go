@@ -179,7 +179,7 @@ func setupRobotJobSinglePumpLeft40mL() (robot *gobot.Robot){
 
     pump1.On();
 
-    time.Sleep(33 * time.Second)
+    time.Sleep(44 * time.Second)
 
     fmt.Println("OFF!");
     pump1.Off();
@@ -207,7 +207,7 @@ func setupRobotJobSinglePumpRight40mL() (robot *gobot.Robot){
 
     pump2.On();
 
-    time.Sleep(33 * time.Second)
+    time.Sleep(44 * time.Second)
 
     fmt.Println("OFF!");
     pump2.Off();
