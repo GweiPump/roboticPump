@@ -8,11 +8,15 @@ Demo testing hardware:
 
 https://www.youtube.com/watch?v=CX-vrFobFG4&ab_channel=Singularity2045
 
-## Gobot flow pump rate (faster)
+Note: Robotic pump priming takes about 2 seconds.
+
+Tubing length both ends for pumps is about 32 cm.
+
+## Gobot flow pump rate (faster) 
 
 Pump rate is about 40 mL every 40 to 44 seconds not primed with a single pump.
 
-Pump rate is about 40 mL every 22 seconds not primed with two pumps at the same time.
+Pump rate is about 40 mL every 24 seconds not primed with two pumps at the same time.
 
 ## pi-blaster.js pump flow rate (slower)
 
