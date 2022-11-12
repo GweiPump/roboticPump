@@ -14,7 +14,7 @@ Tubing length both ends for pumps is about 32 cm.
 
 ## Gobot flow pump rate (faster) 
 
-Pump rate is about 40 mL every 40 to 44 seconds not primed with a single pump.
+Pump rate is about 40 mL every 45 seconds not primed with a single pump.
 
 Pump rate is about 40 mL every 24 seconds not primed with two pumps at the same time.
 
