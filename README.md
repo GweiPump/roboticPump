@@ -5,6 +5,10 @@ Hardware info and programming
 Demo testing hardware:
 
 <img src="https://github.com/GweiPump/roboticPump/blob/main/images/golangSpeed.png" alt="golangIsFast"/>
+<img src="https://github.com/GweiPump/roboticPump/blob/main/images/gpioPins.png" alt="gpioPins"/>
+<img src="https://github.com/GweiPump/roboticPump/blob/main/images/hardwareWiring.png" alt="hardwareWiring"/>
+<img src="https://github.com/GweiPump/roboticPump/blob/main/images/switchTypes.png" alt="switchTypes"/>
+
 
 https://www.youtube.com/watch?v=CX-vrFobFG4&ab_channel=Singularity2045
 
