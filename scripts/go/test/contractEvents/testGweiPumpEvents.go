@@ -29,11 +29,11 @@ func main() {
      // Use this endpoint when you are running your own node on a specific chain (events allowed)
      // client, chainID := clientSetup("ws://localhost:8546")
 
-     client, chainID := clientSetup(os.Getenv("mumbaiQuicknodeWSS"))
+     client, chainID := clientSetup(os.Getenv("baseSepoliaWSS"))
 
      fmt.Println("chainID: ", chainID)
 
-     contractAddress := common.HexToAddress("0xd27759C36967E299ef16df8FAac24D4adb21665c")
+     contractAddress := common.HexToAddress("0x5c9E9e129dE558eCd87DaDa56CA8b058B562ee62")
      contract := connectContractAddress(client,contractAddress)
      fmt.Println("contract type object: ")
      fmt.Printf("%T",contract)
